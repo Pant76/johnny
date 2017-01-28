@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+	xmlns:templates="clr-namespace:JonnyGallo.Pages.Templates;assembly=JonnyGallo"
+          
+
+             x:Class="JonnyGallo.Pages.Dishes">
+  
+  <ListView 
+			SeparatorVisibility="None"
+			SeparatorColor="#CC000000"
+			ItemsSource="{Binding Dishes}"
+			RowHeight="240"
+			 ItemTapped="ListView_OnItemTapped"
+			HasUnevenRows="false"
+			>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<templates:DishListTemplate/>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+  
+  <!--<ListView x:Name="dishesListView" ItemsSource="{Binding Dishes}" RowHeight="200" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell StyleId="disclosure" Height="200" >
+          <ContentView Padding="0,0" BackgroundColor="Green">
+            <StackLayout Orientation="Vertical" Spacing="0" BackgroundColor="Gray">
+              <ContentView Margin="3" HorizontalOptions="CenterAndExpand" BackgroundColor="Aqua" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">>
+                <Image Source="{Binding ImgUrl}" BackgroundColor="Red"
+                       RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                       ></Image>
+              </ContentView>
+            
+          
+          <ContentView Padding="0,0,0,0">
+            <StackLayout Spacing="0">
+              <Label Text="{Binding Title}" HeightRequest="20" VerticalTextAlignment="End" LineBreakMode="TailTruncation" />
+            </StackLayout>
+          </ContentView>
+            </StackLayout>
+          </ContentView>
+        </ViewCell>
+        
+        
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>-->
+</ContentPage>

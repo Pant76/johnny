@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JonnyGallo"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="JonnyGallo.MainPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Save" Icon="save.png"  />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+    <ContentView x:Name="TopContentView">
+      <ContentView.Padding>
+        <OnPlatform x:TypeArguments="Thickness" WinPhone="10" />
+      </ContentView.Padding>
+      <ContentView.Content>
+        <StackLayout x:Name="mainContainer">
+          <Label Text="{Binding Title}"></Label>
+          <Button x:Name="goToFidelity" Clicked="GoToFidelity_OnClicked"></Button>
+        </StackLayout>
+      </ContentView.Content>
+    </ContentView>
+  </ContentPage.Content>
+
+</ContentPage>

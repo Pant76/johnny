@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+		xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="JonnyGallo.Pages.Templates.DishListTemplate">
+
+			
+  <Grid BackgroundColor="Black">
+    <ffimageloading:CachedImage DownsampleToViewSize="true"
+      LoadingPlaceholder="Default.png"
+      Source="{Binding ImgUrl}"
+      Aspect="AspectFill"
+      Opacity="1"/>
+
+    <Grid
+			ColumnSpacing="0"
+			RowSpacing="0"
+			Padding="0,20,0,0">
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="60" />
+      </Grid.RowDefinitions>
+
+      <Grid Grid.Row="1" Padding="10,10,10,10" BackgroundColor="Red" HorizontalOptions="Fill"  Opacity="0.6">
+        <Label
+        FontSize="20"
+        FontAttributes="Bold"
+        Text="{Binding Title}"
+        LineBreakMode="WordWrap"
+        TextColor="White"
+					/>
+      </Grid>
+
+      <Grid Grid.Row="2" Padding="10,5,10,10" BackgroundColor="Black" HorizontalOptions="Fill" Opacity="0.6">
+        <Label
+        FontSize="12"
+        FontAttributes="Bold"
+        Text="{Binding Text}"
+        LineBreakMode="WordWrap"
+        TextColor="White"
+					/>
+      </Grid>
+      <!--
+			<StackLayout 
+				Orientation="Horizontal" 
+				HorizontalOptions="Fill"
+				VerticalOptions="FillAndExpand"
+				Grid.Row="1">
+					<Label 
+						Text="{Binding Section}"
+						TextColor="White" 
+						FontAttributes="Bold" 
+						HorizontalOptions="StartAndExpand" 
+						VerticalOptions="End" />
+					<Label 
+						Text="{Binding When}" 
+						TextColor="White" 
+						HorizontalOptions="End" 
+						TranslationX="-10" 
+						VerticalOptions="End"/>
+					<Label HorizontalOptions="End" VerticalOptions="End">
+						<Label.FormattedText>
+							<FormattedString>
+								<FormattedString.Spans>
+									<Span 
+										Text="&#xf0c0; " 
+										FontSize="{StaticResource BaseFontSize}" 
+										ForegroundColor="{StaticResource AccentColor}" 
+										FontFamily="{x:Static artina:FontAwesome.FontName}" />
+									<Span 
+										Text="77"	
+										FontSize="{StaticResource BaseFontSize}" 
+										ForegroundColor="{StaticResource AccentColor}" />
+								</FormattedString.Spans>
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
+					<Label HorizontalOptions="End" VerticalOptions="End">
+						<Label.FormattedText>
+							<FormattedString>
+								<FormattedString.Spans>
+									<Span 
+										Text="&#xf004; " 
+										FontSize="{StaticResource BaseFontSize}" 
+										ForegroundColor="{StaticResource AccentColor}" 
+										FontFamily="{x:Static artina:FontAwesome.FontName}"/>
+									<Span 
+										Text="22" 
+										FontSize="{StaticResource BaseFontSize}" 
+										ForegroundColor="{StaticResource AccentColor}" />
+								</FormattedString.Spans>
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
+				</StackLayout>
+				-->
+    </Grid>
+  </Grid>
+
+
+</ContentView>

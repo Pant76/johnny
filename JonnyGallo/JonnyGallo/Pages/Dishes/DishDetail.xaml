@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:shared="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+		xmlns:commonViews="clr-namespace:JonnyGallo.Pages.Common;assembly=JonnyGallo"
+		xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+		x:Class="JonnyGallo.Pages.DishDetail">
+	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+	<ScrollView x:Name="outerScrollView" BackgroundColor="White">
+		<Grid x:Name="layeringGrid" RowSpacing="0" VerticalOptions="FillAndExpand">
+			<Grid Padding="0" BackgroundColor="Red">
+				<!-- MAIN IMAGE -->
+				<!---<Image x:Name="img" Source="test_image_1.jpg" Aspect="AspectFill" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Opacity=".8" />-->
+				<Image x:Name="img" Source="{ Binding DetailInnerObject.ImgUrl }" 
+					Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Opacity=".8" />
+
+			</Grid>
+			<StackLayout Spacing="0" Padding="0" VerticalOptions="FillAndExpand">
+				<StackLayout Padding="0" Spacing="0" VerticalOptions="FillAndExpand">
+					<StackLayout Padding="20" x:Name="headers" HeightRequest="160" AnchorX="0">
+						<!-- HEADERS -->
+						<Label Text="{ Binding DetailInnerObject.Title }" LineBreakMode="WordWrap" VerticalOptions="FillAndExpand" TextColor="White" FontSize="25" FontAttributes="None" VerticalTextAlignment="End" />
+						<StackLayout Orientation="Horizontal" VerticalOptions="End">
+							<!--<shared:CircleImage Source="gallo.jpg" Style="{ StaticResource AvatarSmall }" HorizontalOptions="Start" />-->
+							      <ff:CachedImage HorizontalOptions="Center" Aspect="AspectFit" 
+									VerticalOptions="Center" WidthRequest="40" HeightRequest="40" 
+									DownsampleToViewSize="true" Source="gallo.jpg" LoadingPlaceholder="placeholderProfileImage.png">
+							        <ff:CachedImage.Transformations>
+							         <transformations:CircleTransformation />
+							        </ff:CachedImage.Transformations>
+							      </ff:CachedImage>
+
+							<Label Text="{ Binding Author, StringFormat='{0:F0}'} }" VerticalOptions="Center" TextColor="White" HorizontalOptions="End" />
+						</StackLayout>
+					</StackLayout>
+					<!--<StackLayout Orientation="Horizontal" Padding="20" BackgroundColor="White">
+						<Label Text="{ Binding Post.Section }" TextColor="#252525" HorizontalOptions="StartAndExpand" />
+						<Label Text="{ Binding Post.When }" TextColor="#8c8c8c" HorizontalOptions="StartAndExpand" />
+						<Label HorizontalOptions="StartAndExpand">
+							<Label.FormattedText>
+								<FormattedString>
+									<FormattedString.Spans>
+										<Span Text=" " FontSize="{ StaticResource BaseFontSize }" ForegroundColor="{StaticResource AccentColor}" FontFamily="{ x:Static shared:FontAwesome.FontName }" />
+										<Span Text="77" FontSize="{ StaticResource BaseFontSize }" ForegroundColor="{ StaticResource AccentColor }" />
+									</FormattedString.Spans>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+						<Label HorizontalOptions="StartAndExpand">
+							<Label.FormattedText>
+								<FormattedString>
+									<FormattedString.Spans>
+										<Span Text=" " FontSize="{ StaticResource BaseFontSize }" ForegroundColor="{StaticResource AccentColor }" FontFamily="{ x:Static shared:FontAwesome.FontName }" />
+										<Span Text="22" FontSize="{ StaticResource BaseFontSize }" ForegroundColor="{ StaticResource AccentColor }" />
+									</FormattedString.Spans>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+					</StackLayout>
+-->					<BoxView Style="{ StaticResource Horizontal1ptLineStyle }" />
+					<!--<StackLayout Padding="20" BackgroundColor="White">-->
+						<!-- MAIN PARAGRAPH -->
+						<!--<Label Text="{ Binding Post.Body }" VerticalOptions="EndAndExpand" TextColor="#8a8a8a" />
+					</StackLayout>-->
+					<!-- QUOTE -->
+					<StackLayout Orientation="Horizontal" Padding="20" Spacing="0" BackgroundColor="White">
+						<Label Text="“" FontSize="42" MinimumWidthRequest="42" FontAttributes="Bold" VerticalOptions="Start" TextColor="#141414" />
+						<StackLayout Padding="20">
+							<Label Text="{ Binding DetailInnerObject.Text }" VerticalOptions="Start" FontSize="18" LineBreakMode="WordWrap" TextColor="#141414" />
+							<Label Text="”" FontSize="42" FontAttributes="Bold" MinimumWidthRequest="42" VerticalOptions="End" TextColor="#141414" />
+						</StackLayout>
+					<StackLayout>
+						<!-- CircleIcon -->
+
+
+					</StackLayout>
+					<!-- POSTED -->
+					<!--<Grid ColumnSpacing="10" RowSpacing="10" Padding="20,20,20,40" BackgroundColor="White">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<StackLayout Orientation="Horizontal" Grid.Column="0" VerticalOptions="Center">
+							<shared:CircleImage Source="gallo.jpg" Style="{ StaticResource AvatarXSmall }" VerticalOptions="Center" />
+							<Label Text="{ Binding Author, StringFormat='{0:F0}'} }" TextColor="{ StaticResource AccentColor }" FontAttributes="Bold" VerticalTextAlignment="Center" />
+
+						</StackLayout>
+					</Grid>
+					<BoxView Style="{ StaticResource Horizontal1ptLineStyle }" />-->
+				</StackLayout>
+				<!-- COMMENTS -->
+				<!--        <StackLayout
+					BackgroundColor="#f9f9f9"
+					Padding="20">
+
+          <Label
+						BindingContext="{ Binding Comments }"
+						Text="{ Binding Count, StringFormat='{0:F0} COMMENTS' }"
+						TextColor="#252525"
+						HorizontalOptions="StartAndExpand"
+						VerticalOptions="Start" />
+        </StackLayout>
+
+        <StackLayout
+					VerticalOptions="FillAndExpand"
+					BackgroundColor="White">-->
+				<!-- COMMENTS -->
+				<!--
+          <ListView
+						ItemsSource="{ Binding Comments }"
+						SeparatorColor="#77CCCCCC"
+						SeparatorVisibility="Default"
+						RowHeight="180"
+						VerticalOptions="FillAndExpand"
+						>
+
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+
+                  <ViewCell.ContextActions>
+                    <MenuItem Clicked="OnMore"
+											 Text="More" />
+                    <MenuItem Clicked="OnDelete"
+											 Text="Delete" IsDestructive="True" />
+                  </ViewCell.ContextActions>
+
+                  -->
+				<!--<templates:CommentItemTemplate />-->
+				<!--
+
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>-->
+				<!-- BUTTON -->
+				<!--<StackLayout Padding="20" BackgroundColor="White">
+					<shared:Button Style="{ StaticResource PrimaryActionButtonStyle }" Text="Add Comment" />
+				</StackLayout>-->
+			</StackLayout>
+		</StackLayout>
+		</Grid>
+
+	</ScrollView>
+</ContentPage>
